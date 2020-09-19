@@ -10,7 +10,11 @@ public class Spawner : MonoBehaviour
     public int _MyNumber = 0;
 
     public void SetMyObject(int rindex) {
-        GameObject tt = Instantiate(MyGameObjects[rindex], this.transform );
+        if (null == MyGameObjects[rindex]) {
+            Debug.Log("NO EXISTE: "+rindex);
+        } else {
+            GameObject tt = Instantiate(MyGameObjects[rindex], this.transform );
+        }
         // tt.transform.position = this.transform.position;
         // tt.transform.parent = this.transform;
         // MyGameObjects[rindex].SetActive(true);
